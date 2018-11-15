@@ -1,4 +1,4 @@
-# AngularTodo
+# AngularTodo 🚧 under construction 🚧
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) using [Nrwl Nx](https://nrwl.io/nx).
 
@@ -21,6 +21,9 @@ Run `ng generate app myapp` to generate an application. When using Nx, you can c
 ## Development server
 
 Run `ng serve --project=myapp` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+
+## running customer-portal app
+`ng s --project=customer-portal --open --port 4201`
 
 ## Code scaffolding
 
