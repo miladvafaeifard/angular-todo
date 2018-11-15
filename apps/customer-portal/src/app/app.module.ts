@@ -10,6 +10,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 import { StoreRouterConnectingModule } from '@ngrx/router-store';
 import { storeFreeze } from 'ngrx-store-freeze';
+import { counterReducer } from './reducers/counter.reducer';
 
 @NgModule({
   declarations: [AppComponent],
@@ -18,7 +19,7 @@ import { storeFreeze } from 'ngrx-store-freeze';
     NxModule.forRoot(),
     RouterModule.forRoot([], { initialNavigation: 'enabled' }),
     StoreModule.forRoot(
-      {},
+      { counter: counterReducer },
       { metaReducers: !environment.production ? [storeFreeze] : [] }
     ),
     EffectsModule.forRoot([]),
@@ -28,4 +29,4 @@ import { storeFreeze } from 'ngrx-store-freeze';
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }
