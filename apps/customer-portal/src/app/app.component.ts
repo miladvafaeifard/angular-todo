@@ -1,8 +1,8 @@
 import { Component } from '@angular/core';
 import { AppState } from './app.state';
-import { Store } from '@ngrx/store';
-import Action from './app.action';
+import { Store, select } from '@ngrx/store';
 import { Observable } from 'rxjs/internal/Observable';
+import * as CounterAction from './app.action';
 
 @Component({
   selector: 'angular-todo-root',
@@ -12,19 +12,16 @@ import { Observable } from 'rxjs/internal/Observable';
 export class AppComponent {
   title = 'customer-portal';
   counter$: Observable<number>;
-  
-  private action: Action;
 
   constructor(private store: Store<AppState>) {
-    this.counter$ = store.select('counter');
-    this.action = new Action();
+    this.counter$ = store.pipe(select('counter'));
   }
 
   Increase() {
-    this.store.dispatch(this.action.increase());
+    this.store.dispatch(new CounterAction.Increment());
   }
 
   Decrease() {
-    this.store.dispatch(this.action.decrease());
+    this.store.dispatch(new CounterAction.Decrement());
   }
 }

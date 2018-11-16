@@ -1,10 +1,13 @@
-import { INCREMENT, DECREMENT } from "../app.action";
+import { CounterActionTypes, CounterActions } from '../app.action';
+import { InitialState } from '@ngrx/store/src/models';
 
-export function counterReducer(state = 0, action) {
+const defaultState = 0;
+
+export function counterReducer(state: number = defaultState, action: CounterActions): number {
     switch (action.type) {
-        case INCREMENT:
+        case CounterActionTypes.INCREMENT:
             return state + 1;
-        case DECREMENT:
+        case CounterActionTypes.DECREMENT:
             return state > 0 ? state - 1 : state;
         default:
             return state;
