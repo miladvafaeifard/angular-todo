@@ -1,5 +1,5 @@
-import { CounterActionTypes, CounterActions } from '../app.action';
-import { InitialState } from '@ngrx/store/src/models';
+import { CounterActions, CounterActionTypes } from "../action/counter.action";
+
 
 const defaultState = 0;
 
