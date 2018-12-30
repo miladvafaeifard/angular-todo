@@ -2,8 +2,8 @@ import { Component } from '@angular/core';
 import { Store, select } from '@ngrx/store';
 import { Observable } from 'rxjs/internal/Observable';
 
-import * as CounterAction from '../store/action/counter.action';
-import { AppState } from '../store/state/counter.state';
+import * as CounterAction from './action/counter.action';
+import { State, getCount } from './reducers';
 
 @Component({
   selector: 'angular-todo-counter',
@@ -19,8 +19,10 @@ import { AppState } from '../store/state/counter.state';
 export class CounterComponent {
   counter$: Observable<number>;
 
-  constructor(private store: Store<AppState>) {
-    this.counter$ = store.pipe(select('counter'));
+  constructor(private store: Store<State>) {
+    this.counter$ = store.pipe(
+      select(getCount)
+      );
   }
 
   Increase() {
