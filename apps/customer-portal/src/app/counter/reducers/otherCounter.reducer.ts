@@ -1,29 +1,21 @@
 import { OtherCounterActions, OtherCounterActionTypes } from '../action/otherCounter.action';
 import { ActionReducer } from '@ngrx/store';
+import { OtherCounterState } from '../models/otherCounter.model';
 
-export interface CounterState {
-    counter: number
-}
-
-export const initialState: CounterState = {
-    counter: 0
-}
-
-
-export const otherCounterReducer: ActionReducer<CounterState, OtherCounterActions> = (
-  state: CounterState = initialState,
+export const otherCounterReducer: ActionReducer<OtherCounterState, OtherCounterActions> = (
+  state: OtherCounterState,
   action: OtherCounterActions
-): CounterState => {
+): OtherCounterState => {
   switch (action.type) {
     case OtherCounterActionTypes.INCREMENT:
       return {
         ...state,
-        counter: state.counter + 1
+        count: state.count + 1
       };
     case OtherCounterActionTypes.DECREMENT:
       return {
         ...state,
-        counter: state.counter > 0 ? state.counter - 1 : state.counter
+        count: state.count > 0 ? state.count - 1 : state.count
       };
     case OtherCounterActionTypes.RESET:
     default:
@@ -33,4 +25,4 @@ export const otherCounterReducer: ActionReducer<CounterState, OtherCounterAction
   }
 };
 
-export const getCount = (state: CounterState) => state.counter;
+export const getCount = (state: OtherCounterState) => state.count;

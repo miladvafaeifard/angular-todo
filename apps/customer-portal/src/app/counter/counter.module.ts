@@ -11,12 +11,18 @@ import { environment } from '../../environments/environment';
 import { routes } from './counter.routing';
 import { reducers, COUNTER_FEATURE } from './reducers';
 import { CounterComponent } from './counter.component';
+import { counter, otherCounter } from './init.store';
 
 @NgModule({
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
-    StoreModule.forFeature(COUNTER_FEATURE, reducers),
+    StoreModule.forFeature(COUNTER_FEATURE, reducers, {
+      initialState: {
+        counter,
+        otherCounter
+      }
+    }),
     EffectsModule.forRoot([]),
     !environment.production ? StoreDevtoolsModule.instrument() : [],
     StoreRouterConnectingModule
