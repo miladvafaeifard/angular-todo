@@ -11,12 +11,14 @@ import { EffectsModule } from '@ngrx/effects';
 import { AppComponent } from './app.component';
 import { environment } from '../environments/environment';
 import { CounterModule } from './counter/counter.module';
+import { TodoModule } from './todo/todo.module';
 
 @NgModule({
   declarations: [AppComponent],
   imports: [
     BrowserModule,
     CounterModule,
+    TodoModule,
     NxModule.forRoot(),
     RouterModule.forRoot([], { initialNavigation: 'enabled' }),
     StoreModule.forRoot(
