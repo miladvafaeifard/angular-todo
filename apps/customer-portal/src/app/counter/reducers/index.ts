@@ -18,9 +18,9 @@ export const reducers: ActionReducerMap<State> = {
   otherCounter: fromOtherCounter.otherCounterReducer,
 };
 
-export const COUNTER_FEATURE = '[Counter Feature]';
+export const COUNTER_FEATURE_KEY = '[Counter Feature]';
 
-export const getAppState = createFeatureSelector<State>(COUNTER_FEATURE);
+export const getAppState = createFeatureSelector<State>(COUNTER_FEATURE_KEY);
 
 export const getCounterState = createFeatureSelector<Model.CounterState>('counter');
 export const getOtherCounterState = createFeatureSelector<Model.OtherCounterState>('otherCounter');

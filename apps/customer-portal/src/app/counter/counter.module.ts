@@ -9,7 +9,7 @@ import { RouterModule } from '@angular/router';
 
 import { environment } from '../../environments/environment';
 import { routes } from './counter.routing';
-import { reducers, COUNTER_FEATURE } from './reducers';
+import { reducers, COUNTER_FEATURE_KEY } from './reducers';
 import { CounterComponent } from './counter.component';
 import { counter, otherCounter } from './init.store';
 
@@ -17,7 +17,7 @@ import { counter, otherCounter } from './init.store';
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
-    StoreModule.forFeature(COUNTER_FEATURE, reducers, {
+    StoreModule.forFeature(COUNTER_FEATURE_KEY, reducers, {
       initialState: {
         counter,
         otherCounter
